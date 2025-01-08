@@ -1,3 +1,4 @@
+// YOUR PROJECTS
 const cardIcons = [
   'icons/star-plus-outline.svg',
   'icons/eye-plus-outline.svg',
@@ -5,7 +6,7 @@ const cardIcons = [
 ];
 
 // array containing card information
-const projects = [
+const projectsArray = [
   {
     title: 'Super Cool Project',
     description:
@@ -65,7 +66,111 @@ function createCard(project) {
 }
 
 // render the cards
-projects.forEach((project) => {
+projectsArray.forEach((project) => {
   const card = createCard(project);
   projectsContainer.appendChild(card);
+});
+
+// ANNOUNCEMENTS
+// array containing announcement information
+const announcementsArray = [
+  {
+    title: 'Site Maintenance',
+    description:
+      'Vestibulum venenatis lacus sed accumsan consequat neque sapien. Aliquam neque, ac dignissim urna turpis vitae quam...',
+  },
+  {
+    title: 'Community Share Day',
+    description:
+      'Nam porta tristique erat, quis fermentum orci efficitur vitae. Suspendisse nibh lorem, placerat sed...',
+  },
+  {
+    title: 'Updated Privacy Policy',
+    description:
+      'Curabitur quis tristique nibh. Cras eu molestie velit, nec mattis justo. Nulla non ligula nisl...',
+  },
+];
+
+// container for Announcements
+const announcementContainer = document.getElementById('announcement-container');
+
+// function to create announcement
+function createAnnouncement(annContent) {
+  const announcement = document.createElement('div');
+  announcement.classList.add('announcement');
+
+  // add announcement content
+  announcement.innerHTML = `
+    <p class="announcement-header">${annContent.title}</p>
+    <p class="announcement-description">${annContent.description}</p>
+  `;
+
+  return announcement;
+}
+
+// render the announcements with dividers
+announcementsArray.forEach((announcement, index) => {
+  const content = createAnnouncement(announcement);
+  announcementContainer.appendChild(content);
+
+  // add divider if it's not the last announcement
+  if (index < announcementsArray.length - 1) {
+    const divider = document.createElement('hr');
+    divider.classList.add('announcement-divider');
+    announcementContainer.appendChild(divider);
+  }
+});
+
+// TRENDING
+// array containing trending information
+const trendingArray = [
+  {
+    profile: 'profiles/profile2.png',
+    userTag: '@james',
+    projectName: 'World Peace Builder',
+  },
+  {
+    profile: 'profiles/profile3.png',
+    userTag: '@morgan',
+    projectName: 'Super Cool Project',
+  },
+  {
+    profile: 'profiles/profile4.png',
+    userTag: '@kendall',
+    projectName: 'Life Changing App',
+  },
+  {
+    profile: 'profiles/profile5.png',
+    userTag: '@alex',
+    projectName: 'No Traffic Maker',
+  },
+];
+
+// container for trending content
+const trendingContainer = document.getElementById('trending-container');
+
+// function to create trending item
+function createTrendingItem(trendingItem) {
+  // create trending item
+  const item = document.createElement('div');
+  item.classList.add('trending-item');
+
+  // add the item's content
+  item.innerHTML = `
+    <div class="trending-profile">
+      <img src="${trendingItem.profile}" alt="profile" class="profile-small">
+    </div>
+    <div class="trending-text">
+      <p class="trending-user">${trendingItem.userTag}</p>
+      <p class="trending-project-name">${trendingItem.projectName}</p>
+    </div>
+  `;
+
+  return item;
+}
+
+// render trending items
+trendingArray.forEach((item) => {
+  const content = createTrendingItem(item);
+  trendingContainer.appendChild(content);
 });
