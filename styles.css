@@ -213,7 +213,7 @@ body {
 }
 
 #projects-container {
-  padding-top: 20px;
+  padding-top: 10px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, auto);
@@ -267,7 +267,7 @@ body {
 
 .announcements h3,
 .trending h3 {
-  padding-bottom: 20px;
+  padding-bottom: 10px;
 }
 
 .announcement-header {
@@ -289,4 +289,19 @@ body {
 
 .trending-item {
   display: flex;
+}
+
+.trending-text {
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+
+.trending-user {
+  font-size: 15px;
+  padding-bottom: 4px;
+}
+
+.trending-project-name {
+  font-size: 13px;
+  color: darkgrey;
 }
